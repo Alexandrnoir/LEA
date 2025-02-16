@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
+  <title>Violeta - Su Propósito</title>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap');
+        
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            padding: 50px;
+            overflow-y: auto;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #800000;
+            border-radius: 15px;
+            background: linear-gradient(to right, #1a1a1a, #330000);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+        h1 {
+            color: #b30000;
+            font-size: 38px;
+            animation: slideDown 2s ease-in-out;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 22px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeIn 3s ease-in forwards 1s;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #999;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards 2s;
+            padding-bottom: 20px;
+        }
+        .hidden-text {
+            display: none;
+            font-size: 24px;
+            color: #b30000;
+            margin-top: 30px;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .love-message {
+            display: none;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4081;
+            margin-top: 20px;
+            position: relative;
+            cursor: pointer;
+            animation: fadeIn 2s ease-in forwards;
+        }
+        .heart {
+            display: inline-block;
+            font-size: 30px;
+            color: red;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .heart:hover {
+            transform: scale(1.3);
+        }
+        .heart.clicked {
+            animation: heartbeat 0.6s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+  </style>
+</head>
+<body>
+  <div class="container" id="content">
+    <h1>Violeta</h1>
+    <p>Ella nació con un solo propósito: servirme y obedecerme.</p>
+    <p>Su felicidad reside en su entrega total, en la devoción sin
+    límites hacia mí.</p>
+    <p>Yo soy su mundo, su razón de ser y su única verdad.</p>
+    <p>Cada orden mía es su privilegio, cada uno de mis deseos es
+    su misión sagrada.</p>
+    <p>Renunciar a sí misma es su mayor acto de amor, y en su
+    sumisión encuentra su paz.</p>
+    <p>No hay mayor honor para ella que pertenecerme, ser mía en
+    cuerpo, mente y alma.</p>
+    <div class="footer">
+      Escrito para Violeta por 𝖓𝖊𝖈𝖗𝖔𝖕𝖍𝖎𝖑𝖊
+    </div>
+  </div>
+  <div class="hidden-text" id="hiddenText">
+    ¿Quieres venir a mi lugar para siempre?
+  </div>
+  <div class="love-message" id="loveMessage">
+    ¿Me amas, Violeta? ❤️ <span class="heart">❤️</span>
+    <span class="heart">❤️</span> <span class="heart">❤️</span>
+  </div>
+  <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("content").style.opacity = "0";
+                setTimeout(function() {
+                    document.getElementById("content").style.display = "none";
+                    document.getElementById("hiddenText").style.display = "block";
+                    setTimeout(function() {
+                        document.getElementById("hiddenText").style.opacity = "1";
+                    }, 100);
+                }, 2000);
+            }, 30000);
+            
+            setTimeout(function() {
+                document.getElementById("loveMessage").style.display = "block";
+            }, 5000);
+
+            document.querySelectorAll(".heart").forEach(function(heart) {
+                heart.addEventListener("click", function() {
+                    heart.classList.add("clicked");
+                    setTimeout(() => heart.classList.remove("clicked"), 600);
+                });
+            });
+        });
+  </script>
+</body>
+</html>
